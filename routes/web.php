@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ModeradorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +14,14 @@ use App\Http\Controllers\ModeradorController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('/users', UserController::class);
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('uses');
 
-Route::resource('/moders', ModeradorController::class);
+Route::get('/moders', [App\Http\Controllers\ModeradorController::class, 'index'])->name('moders');
 

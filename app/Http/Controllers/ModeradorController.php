@@ -21,7 +21,7 @@ class ModeradorController extends Controller
 
     public function index()
     {
-        return view('moder');
+        return view('moders');
     }
 
     /**

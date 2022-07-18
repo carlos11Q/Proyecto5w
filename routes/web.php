@@ -25,3 +25,7 @@ Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->nam
 
 Route::get('/moders', [App\Http\Controllers\ModeradorController::class, 'index'])->name('moders');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

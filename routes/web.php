@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\CitaController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +20,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('landing');
 });
+
+
+
+Route::get('cita/{cita}/ver', [CitaController::class, 'show'])->name('cita.show');
+Route::delete('cita/{cita}/eliminar', [CitaController::class, 'destroy'])->name('cita.destroy');
+
+
+Route::get('cita/registrar', [CitaController::class, 'create'])->name('cita.create');
+Route::post('cita/guaradr', [CitaController::class, 'store'])->name('cita.store');
+Route::get('cita/lista', [CitaController::class, 'index'])->name('cita.index');
+Route::get('cita/{cita}/editar', [CitaController::class, 'edit'])->name('cita.edit');
+
+Route::put('cita/{cita}/actualizar', [CitaController::class, 'update'])->name('cita.update');
+
+
+
 
 Auth::routes();
 
